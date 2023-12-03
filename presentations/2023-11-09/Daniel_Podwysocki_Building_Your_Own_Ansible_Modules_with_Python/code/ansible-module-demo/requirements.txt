@@ -1,0 +1,3 @@
+# requirements needed by the module
+ansible
+requests

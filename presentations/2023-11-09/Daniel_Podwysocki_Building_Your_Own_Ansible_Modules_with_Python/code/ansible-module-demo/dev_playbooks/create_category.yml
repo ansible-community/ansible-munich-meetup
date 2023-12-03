@@ -1,0 +1,19 @@
+---
+
+- name: Snipe-IT demo playbook
+  hosts: localhost
+  tasks:
+    - name: Create a category in snipe-it
+      snipeit_category:
+        # Local development key - shipped with the DB dump included in the repo.
+        # For a production environment, this should come from a secret and not be version controlled.
+        # load from a file with lookup('file', 'path/to/file')
+        api_key: "{{ lookup('file', '../dev-api-key.txt') }}"
+        name: server
+        snipe_url: http://localhost:8080/
+        category_type: asset
+      register: server_category
+    - name: Print the internal numeric ID snipe returned for the category
+      debug:
+        msg: "The server category has an ID of {{ server_category.category_id }}"
+
