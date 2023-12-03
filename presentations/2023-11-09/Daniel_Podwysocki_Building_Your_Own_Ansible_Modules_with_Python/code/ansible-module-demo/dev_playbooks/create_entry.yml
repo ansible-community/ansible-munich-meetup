@@ -1,0 +1,26 @@
+---
+
+- name: Snipe-IT demo playbook
+  hosts: localhost
+  tasks:
+    - name: Create an entry in snipe-it
+      snipeit_entry:
+        # Local development key - shipped with the DB dump included in the repo.
+        # For a production environment, this should come from a secret and not be version controlled.
+        # load from a file with lookup('file', 'path/to/file')
+        api_key: "{{ lookup('file', '../dev-api-key.txt') }}"
+        snipe_url: http://localhost:8080/
+        asset_tag: playbook_created_asset001
+        model_name: "awesome123"
+        status_id: 1
+    - name: Create an entry in snipe-it (check mode)
+      snipeit_entry:
+        # Local development key - shipped with the DB dump included in the repo.
+        # For a production environment, this should come from a secret and not be version controlled.
+        # load from a file with lookup('file', 'path/to/file')
+        api_key: "{{ lookup('file', '../dev-api-key.txt') }}"
+        snipe_url: http://localhost:8080/
+        asset_tag: playbook_created_asset001
+        model_name: "awesome123"
+        status_id: 2
+      check_mode: true

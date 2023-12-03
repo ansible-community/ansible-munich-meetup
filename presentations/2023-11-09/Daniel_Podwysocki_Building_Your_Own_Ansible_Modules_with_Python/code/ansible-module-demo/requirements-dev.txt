@@ -1,0 +1,2 @@
+# requirements needed for development, but not strictly for running the module
+ansible

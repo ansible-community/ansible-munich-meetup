@@ -1,0 +1,7 @@
+- name: "Create a 'server' category in snipe-it"
+  snipeit_category:
+    api_key: "{{ api_key }}"
+    name: server
+    snipe_url: "{{ snipe_url }}"
+    category_type: asset
+  register: server_category

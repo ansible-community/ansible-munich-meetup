@@ -1,0 +1,6 @@
+- name: "Create a 'awesome123' server model"
+  snipeit_model:
+    api_key: "{{ api_key }}"
+    snipe_url: "{{ snipe_url }}"
+    name: "awesome123"
+    category: "server"
